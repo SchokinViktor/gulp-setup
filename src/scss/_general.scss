@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1C121F;
+
+    @include xl {
+        &::before{
+            content: "";
+            width: 48%;
+            height: 720px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: rgba(79, 70, 78, 0.35);
+        }
+    }
+
+    @include xxl {
+        &::before{
+            height: 990px;
+        }
+    }
+}
+
+.container {
+    //max-width: 1660px; //1360px
+    max-width: 1360px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+.main-title {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 700;
+    font-size: 43px;
+    line-height: 153%;
+    color: $mainTextColor;
+
+    & span {
+        color: $main-yellow;
+    }
+
+    @include md {
+        font-size: 53px;
+    }
+
+    @include xxl {
+        font-size: 85px;
+    }
+}
+
+.section-title {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: $mainTextColor;
+    position: relative;
+    display: inline-block;
+
+    &::before {
+        content: "";
+        background: #8613A5;
+        width: 84px;
+        height: 84px;
+        border-radius: 100%;
+
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: -34px;
+        transform: translateY(-50%);
+    }
+
+    &:nth-child(even)::before {
+        background-color: #E03054;
+    }
+}
